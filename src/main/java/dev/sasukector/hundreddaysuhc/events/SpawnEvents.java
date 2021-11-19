@@ -85,7 +85,8 @@ public class SpawnEvents implements Listener {
             if(block != null && block.getState() instanceof InventoryHolder) {
                 if (event.getPlayer().getGameMode() != GameMode.CREATIVE)
                     event.setCancelled(true);
-            } else if (block != null && block.getType() == Material.DIAMOND_BLOCK) {
+            } else if (block != null && block.getType() == Material.DIAMOND_BLOCK &&
+                event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
                 Player player = event.getPlayer();
                 if (TeamsController.getInstance().getNormalPlayers().contains(player)) {
                     GameController.getInstance().onPlayerScore(event.getPlayer());
